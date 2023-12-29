@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ClientController::class, 'index']);
+Route::get('/with_where', [ClientController::class, 'index_with_where_clause']);
+Route::get('/order_by_email', [ClientController::class, 'index_order_by_email']);
+Route::get('/order_by_id', [ClientController::class, 'index_order_by_id']);
